@@ -39,6 +39,13 @@ namespace CrudOperation.Controllers
             return new JsonResult("Record created successfully.");
         }
 
+        //public IActionResult EmployeeList()
+        //{
+
+        //    var data = myDbContext.Employees.ToList();
+        //    return new JsonResult(data);
+        //}
+
         public JsonResult EmployeeList()
         {
 

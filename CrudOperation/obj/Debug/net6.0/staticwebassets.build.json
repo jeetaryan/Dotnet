@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gyLIHgaCdeeUYs1ARfuw16IjkRER1h4PM/kvpeG7FD8=",
+  "Hash": "Qvwit2vlUaWFpuFpK3UZfJR6Rv3neREbZgoVXcmsJVc=",
   "Source": "CrudOperation",
   "BasePath": "_content/CrudOperation",
   "Mode": "Default",
@@ -1071,12 +1071,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\script\\crudOperation.js",
+      "Identity": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\script\\crudoperation.js",
       "SourceId": "CrudOperation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\",
       "BasePath": "_content/CrudOperation",
-      "RelativePath": "script/crudOperation.js",
+      "RelativePath": "script/crudoperation.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1085,7 +1085,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\script\\crudOperation.js"
+      "OriginalItemSpec": "wwwroot\\script\\crudoperation.js"
     }
   ]
 }

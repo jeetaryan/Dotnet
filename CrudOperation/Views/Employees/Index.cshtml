@@ -3,17 +3,13 @@
 }
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-<script src="~/script/crudoperation.js"></script>
-
 <div class="card">
     <div class="card-header">
         <a asp-controller="Crud" asp-action="Add" class="btn btn-primary">Add employee</a>
     </div>
     <div class="card-body">
 
-        <table class="table">
+        <table class="employee_table table">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -70,3 +66,11 @@
         </div>
     </div>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/script/crudoperation.js"></script>
+<script>
+    var x = new crudOperation();
+    x.init();
+</script>

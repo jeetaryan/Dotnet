@@ -1,10 +1,7 @@
-﻿
-@{
+﻿@{
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-<script src="~/script/crudoperation.js"></script>
+
 
 <div class="card">
     <div class="card-header">
@@ -31,8 +28,19 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="employeeAdd();">Save</button>
+                <button type="button" class="btn btn-primary" id="btnSave">Save</button>
             </div>
         </form>
     </div>
 </div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/script/crudoperation.js"></script>
+<script>
+    var x = new crudOperation();
+    x.init();
+    var CrudUrls = {
+        GetEmployeeList: '@Url.Action("EmployeeList","Employees")',
+        SaveEmployee: '@Url.Action("EmployeeAdd","Employees")'
+    }
+</script>

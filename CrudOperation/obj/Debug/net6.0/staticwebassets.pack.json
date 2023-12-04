@@ -245,8 +245,8 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\script\\crudOperation.js",
-      "PackagePath": "staticwebassets\\script\\crudOperation.js"
+      "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\script\\crudoperation.js",
+      "PackagePath": "staticwebassets\\script\\crudoperation.js"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CrudOperation.Microsoft.AspNetCore.StaticWebAssets.props",
