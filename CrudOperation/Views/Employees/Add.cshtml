@@ -1,0 +1,38 @@
+﻿
+@{
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/script/crudoperation.js"></script>
+
+<div class="card">
+    <div class="card-header">
+        <a asp-controller="Crud" asp-action="Index" class="btn btn-primary">Employee list</a>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="modal-body">
+                <input type="text" hidden class="form-control" id="emp_id">
+
+                <div class="mb-3">
+                    <label class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Contact</label>
+                    <input type="number" class="form-control" id="phone">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="employeeAdd();">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
