@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qvwit2vlUaWFpuFpK3UZfJR6Rv3neREbZgoVXcmsJVc=",
+  "Hash": "2jks1ORIqQ0wODuapRLP0gHhASBa+cm/K0i7fNrr+LM=",
   "Source": "CrudOperation",
   "BasePath": "_content/CrudOperation",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\script\\crudoperation.js"
+    },
+    {
+      "Identity": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\script\\urls.js",
+      "SourceId": "CrudOperation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\",
+      "BasePath": "_content/CrudOperation",
+      "RelativePath": "script/urls.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\script\\urls.js"
     }
   ]
 }

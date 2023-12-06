@@ -5,7 +5,7 @@
 
 <div class="card">
     <div class="card-header">
-        <a asp-controller="Crud" asp-action="Index" class="btn btn-primary">Employee list</a>
+        <a asp-controller="Employees" asp-action="Index" class="btn btn-primary">Employee list</a>
     </div>
     <div class="card-body">
         <form method="post">
@@ -37,10 +37,13 @@
 <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 <script src="~/script/crudoperation.js"></script>
 <script>
+
+    var CrudUrls = {
+
+        EmployeeAdd: '@Url.Action("PostEmployee","Employees")',
+        GetEmployeeList: '@Url.Action("GetEmployee","Employees")'
+    }
     var x = new crudOperation();
     x.init();
-    var CrudUrls = {
-        GetEmployeeList: '@Url.Action("EmployeeList","Employees")',
-        SaveEmployee: '@Url.Action("EmployeeAdd","Employees")'
-    }
+    
 </script>

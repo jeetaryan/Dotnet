@@ -15,7 +15,8 @@ namespace CrudOperation.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var data = myDbContext.Employees.ToList();
+            return View(data);
         }
 
         public IActionResult Add()
@@ -23,7 +24,7 @@ namespace CrudOperation.Controllers
             return View();
         }
 
-        public JsonResult EmployeeAdd(Employee employee)
+        public JsonResult PostEmployee(Employee employee)
         {
             var data = new Employee()
             {
@@ -31,27 +32,19 @@ namespace CrudOperation.Controllers
                 Status = employee.Status,
                 Email = employee.Email,
                 Phone = employee.Phone,
-                CreatedOn=DateTime.Now,
-                
+                CreatedOn = DateTime.Now,
             };
             myDbContext.Employees.Add(data);
             myDbContext.SaveChanges();
             return new JsonResult("Record created successfully.");
         }
 
-        //public IActionResult EmployeeList()
+        //public JsonResult GetEmployee()
         //{
 
         //    var data = myDbContext.Employees.ToList();
         //    return new JsonResult(data);
         //}
-
-        public JsonResult EmployeeList()
-        {
-
-            var data = myDbContext.Employees.ToList();
-            return new JsonResult(data);
-        }
 
         public JsonResult EmployeeEdit(int id)
         {

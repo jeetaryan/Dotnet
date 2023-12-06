@@ -1,15 +1,20 @@
-﻿
+﻿@model List<CrudOperation.Models.Employee>
 @{
 }
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+@* //bootstrap datatable css library *@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+<link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" />
+<link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" />
 <div class="card">
     <div class="card-header">
-        <a asp-controller="Crud" asp-action="Add" class="btn btn-primary">Add employee</a>
+        <a asp-controller="Employees" asp-action="Add" class="btn btn-primary">Add employee</a>
     </div>
     <div class="card-body">
 
-        <table class="employee_table table">
+        <table class="table">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -21,9 +26,22 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody id="employee_table">
+            <tbody id="EmployeeData">
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>@item.Email</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Status</td>
+                            <td>@item.CreatedOn</td>                       
+                        </tr>
+                    }
+                }
             </tbody>
-
         </table>
     </div>
 </div>
@@ -69,8 +87,21 @@
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-<script src="~/script/crudoperation.js"></script>
-<script>
-    var x = new crudOperation();
-    x.init();
-</script>
+@* //bootstrap datatable library *@
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+@* //custom js *@
+@* <script src="~/script/crudoperation.js"></script> *@
+@* <script>
+    var CrudUrls = {
+
+        GetEmployeeList: '@Url.Action("GetEmployee","employees")'
+    };
+    var xa = new crudOperation();
+    xa.init();
+
+</script> *@
+
