@@ -3,18 +3,23 @@ var crudOperation = function () {
     var self = this;
     //Mandatory function to be implemented here 
     var initilization = function () {
-        GetEmployee();
-        alert("post employee");
+        //calling datatable function
+        dataTable();
+        //GetEmployee();
+        //alert("post employee");
 
 
     }
     var registration = function () {
         $(document).on("click", "#btnSave", PostEmployee);
         $(document).on("click", "#btnEdit", EditEmployee);
+        $(document).on("click", "#btnUpdate", UpdateEmployee);
         $(document).on("click", "#btnDelete", DeleteEmployee);
     }
 
     // All user defined function will be implemented here
+
+    //cretaing add employee function
     var PostEmployee = function () {
         var objValue = {
             Name: $("#name").val(),
@@ -29,11 +34,8 @@ var crudOperation = function () {
             contentType: 'application/x-www-form-urlencoded;charset=utf-8',
             data: objValue,
             success: function (result) {
-                debugger
                 console.log(result);
-                var a = GetEmployee();
-                console.log(a);
-                //window.location.href = "/Employees/GetEmployee";
+                window.location.href = "/Employees/Index";
             },
             error: function () {
                 alert("Could not created new record.");
@@ -41,6 +43,7 @@ var crudOperation = function () {
         });
     }
 
+    //creating get employee function
     var GetEmployee = function () {
 
         $.ajax({
@@ -80,13 +83,56 @@ var crudOperation = function () {
         })
     }
 
+    //creating edit employee function
     var EditEmployee = function () {
-        console.log("Hello Edit...");
+        $('#employeeModal').modal('show')
+        var x = document.querySelector("#btnEdit");
+        var id = x.getAttribute("data");
+        $.ajax({
+            url: '/Employees/EditEmployee?id=' + id,
+            type: 'Get',
+            dataType: 'json',
+            contentType: 'application/json;charset=utf-8',
+            success: function (result) {
+                $("#emp_id").val(result.id);
+                $("#name").val(result.name);
+                $("#email").val(result.email);
+                $("#phone").val(result.phone);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+
     }
 
-    var DeleteEmployee = function () {
-        console.log("Hello Delete");
+    //creating update employee function
+    var UpdateEmployee = function () {
+        console.log(myData);
     }
+
+    //creating delete employee function
+    var DeleteEmployee = function () {
+        debugger
+        var x = document.querySelector("#btnDelete");
+        var id = x.getAttribute("data");
+        $.ajax({
+            url: '/Employees/EmployeeDelete?id='+id,
+            type: 'Get',
+            dataType: 'Json',
+            contentType: 'application/json;charset=utf-8',
+            success: function (result) {
+                console.log(result);
+                window.location.href = "/Employees/Index";
+
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    }
+
+    
 
     self.init = function () {
         initilization();

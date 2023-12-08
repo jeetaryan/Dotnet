@@ -5,12 +5,24 @@
       "PackagePath": "staticwebassets\\CrudOperation.bundle.scp.css"
     },
     {
+      "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\css\\custom-css\\custom.css",
+      "PackagePath": "staticwebassets\\css\\custom-css\\custom.css"
+    },
+    {
       "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\js\\custom-js\\custom-datatable.js",
+      "PackagePath": "staticwebassets\\js\\custom-js\\custom-datatable.js"
+    },
+    {
+      "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\js\\custom-js\\employee.js",
+      "PackagePath": "staticwebassets\\js\\custom-js\\employee.js"
     },
     {
       "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\js\\site.js",
@@ -243,14 +255,6 @@
     {
       "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
-    },
-    {
-      "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\script\\crudoperation.js",
-      "PackagePath": "staticwebassets\\script\\crudoperation.js"
-    },
-    {
-      "Id": "D:\\Prasannajeet\\DotNet\\CrudOperation\\CrudOperation\\wwwroot\\script\\urls.js",
-      "PackagePath": "staticwebassets\\script\\urls.js"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CrudOperation.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -46,7 +46,7 @@ namespace CrudOperation.Controllers
         //    return new JsonResult(data);
         //}
 
-        public JsonResult EmployeeEdit(int id)
+        public JsonResult EditEmployee(int id)
         {
             var data = myDbContext.Employees.Where(x => x.Id == id).SingleOrDefault();
             return new JsonResult(data);
@@ -62,10 +62,17 @@ namespace CrudOperation.Controllers
         public JsonResult EmployeeDelete(int id)
         {
             var data = myDbContext.Employees.Where(x => x.Id == id).SingleOrDefault();
-            data.Status = "In-active";
-            myDbContext.Update(data);
-            myDbContext.SaveChanges();
-            return new JsonResult("Record deleted successfully.");
+            if (data != null)
+            {
+                data.Status = "In-active";
+                myDbContext.Update(data);
+                myDbContext.SaveChanges();
+                return new JsonResult("Record deleted successfully.");
+            }
+            else {
+                return new JsonResult("Record could not be deleted ...");
+            }
+           
         }
 
     }
