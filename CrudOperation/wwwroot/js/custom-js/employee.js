@@ -1,3 +1,4 @@
+
 var crudOperation = function () {
 
     var self = this;
@@ -6,8 +7,6 @@ var crudOperation = function () {
         //calling datatable function
         dataTable();
         //GetEmployee();
-        //alert("post employee");
-
 
     }
     var registration = function () {
@@ -16,6 +15,7 @@ var crudOperation = function () {
         $(document).on("click", "#btnUpdate", UpdateEmployee);
         $(document).on("click", "#btnDelete", DeleteEmployee);
     }
+      
 
     // All user defined function will be implemented here
 
@@ -85,9 +85,9 @@ var crudOperation = function () {
 
     //creating edit employee function
     var EditEmployee = function () {
-        $('#employeeModal').modal('show')
-        var x = document.querySelector("#btnEdit");
-        var id = x.getAttribute("data");
+        modal();
+        //getting the id from data attribute of button prop
+        var id = $(this).closest("tr").find("#btnEdit").attr("data");
         $.ajax({
             url: '/Employees/EditEmployee?id=' + id,
             type: 'Get',
@@ -103,7 +103,6 @@ var crudOperation = function () {
                 console.log(e);
             }
         });
-
     }
 
     //creating update employee function
@@ -113,9 +112,10 @@ var crudOperation = function () {
 
     //creating delete employee function
     var DeleteEmployee = function () {
-        debugger
-        var x = document.querySelector("#btnDelete");
-        var id = x.getAttribute("data");
+
+        //getting the id from data attribute of button prop
+        var id = $(this).closest("tr").find("#btnDelete").attr("data");
+       
         $.ajax({
             url: '/Employees/EmployeeDelete?id='+id,
             type: 'Get',
@@ -138,5 +138,5 @@ var crudOperation = function () {
         initilization();
         registration();
     }
-
 }
+
