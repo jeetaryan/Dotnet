@@ -13,9 +13,7 @@
 <div class="card">
     <div class="card-header">
         <a asp-controller="Employees" asp-action="Add" class="btn btn-primary">Add employee</a>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-            Open modal
-        </button>
+        
     </div>
     <div class="card-body">
 
@@ -64,18 +62,39 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
+                <h4 class="modal-title">Employee details</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
-                Modal body..
-            </div>
+                <form method="post">
+                    <div class="modal-body">
+                        <input type="text" hidden class="form-control" id="emp_id">
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <div class="mb-3">
+                            <label class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Contact</label>
+                            <input type="number" class="form-control" id="phone">
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnUpdate">Save changes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </form>
             </div>
 
         </div>
@@ -102,10 +121,13 @@
 <script src="~/js/custom-js/employee.js"></script>
 
 <script>
-   
+    var CrudUrls = {
+
+        UpdateEmployee: '@Url.Action("UpdateEmployee","Employees")',
+    }
     var xa = new crudOperation();
     xa.init();
-    
-    
+    dataTable();
+
 </script>
 

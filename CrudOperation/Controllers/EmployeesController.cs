@@ -39,21 +39,14 @@ namespace CrudOperation.Controllers
             return new JsonResult("Record created successfully.");
         }
 
-        //public JsonResult GetEmployee()
-        //{
-
-        //    var data = myDbContext.Employees.ToList();
-        //    return new JsonResult(data);
-        //}
-
         public JsonResult EditEmployee(int id)
         {
             var data = myDbContext.Employees.Where(x => x.Id == id).SingleOrDefault();
             return new JsonResult(data);
         }
 
-        public JsonResult EmployeeUpdate(Employee employee)
-        {
+        public JsonResult UpdateEmployee(Employee employee)
+        {   employee.CreatedOn = DateTime.Now;
             myDbContext.Employees.Update(employee);
             myDbContext.SaveChanges();
             return new JsonResult("Record updated successfully.");

@@ -4,9 +4,7 @@ var crudOperation = function () {
     var self = this;
     //Mandatory function to be implemented here 
     var initilization = function () {
-        //calling datatable function
-        dataTable();
-        //GetEmployee();
+
 
     }
     var registration = function () {
@@ -15,12 +13,31 @@ var crudOperation = function () {
         $(document).on("click", "#btnUpdate", UpdateEmployee);
         $(document).on("click", "#btnDelete", DeleteEmployee);
     }
-      
+
 
     // All user defined function will be implemented here
 
     //cretaing add employee function
     var PostEmployee = function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                    form.classList.add('was-validated')
+                }
+                else {
+                    postData();
+                }
+            })
+      
+    }
+    
+    function postData() {
         var objValue = {
             Name: $("#name").val(),
             Email: $("#email").val(),
@@ -42,10 +59,9 @@ var crudOperation = function () {
             }
         });
     }
-
     //creating get employee function
     var GetEmployee = function () {
-
+        alert("get employee list");
         $.ajax({
             url: CrudUrls.GetEmployeeList,
             type: 'Get',
@@ -85,7 +101,9 @@ var crudOperation = function () {
 
     //creating edit employee function
     var EditEmployee = function () {
-        modal();
+        //calling bootstrap modal
+        $("#myModal").modal('show');
+
         //getting the id from data attribute of button prop
         var id = $(this).closest("tr").find("#btnEdit").attr("data");
         $.ajax({
@@ -107,7 +125,28 @@ var crudOperation = function () {
 
     //creating update employee function
     var UpdateEmployee = function () {
-        console.log(myData);
+
+        var objValue = {
+            Id: $("#emp_id").val(),
+            Name: $("#name").val(),
+            Email: $("#email").val(),
+            Phone: $("#phone").val(),
+            Status: 'Active'
+        }
+        $.ajax({
+            url: CrudUrls.UpdateEmployee,
+            type: 'Post',
+            dataType: 'json',
+            contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+            data: objValue,
+            success: function (result) {
+                console.log(result);
+                window.location.href = "/Employees/Index";
+            },
+            error: function () {
+                alert("Could not updated record.");
+            }
+        });
     }
 
     //creating delete employee function
@@ -115,9 +154,9 @@ var crudOperation = function () {
 
         //getting the id from data attribute of button prop
         var id = $(this).closest("tr").find("#btnDelete").attr("data");
-       
+
         $.ajax({
-            url: '/Employees/EmployeeDelete?id='+id,
+            url: '/Employees/EmployeeDelete?id=' + id,
             type: 'Get',
             dataType: 'Json',
             contentType: 'application/json;charset=utf-8',
@@ -132,7 +171,7 @@ var crudOperation = function () {
         });
     }
 
-    
+
 
     self.init = function () {
         initilization();

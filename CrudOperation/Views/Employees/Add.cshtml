@@ -2,29 +2,34 @@
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
-
 <div class="card">
     <div class="card-header">
-        <a asp-controller="Employees" asp-action="Index" class="btn btn-primary">Back</a>        
+        <a asp-controller="Employees" asp-action="Index" class="btn btn-primary">Back</a>
     </div>
     <div class="card-body">
-        <form method="post">
-            <div class="modal-body">
+        <form method="post" class="row g-3 needs-validation" novalidate">
+            <div class="modal-body"> 
                 <input type="text" hidden class="form-control" id="emp_id">
 
                 <div class="mb-3">
                     <label class="form-label">Name:</label>
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" id="name" required>
+                    <div class="valid-feedback"> Looks good! </div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                    <div class="valid-feedback"> Looks good! </div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Contact</label>
-                    <input type="number" class="form-control" id="phone">
+                    <input type="tel" class="form-control" id="phone" required pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                    <div class="valid-feedback"> Looks good! </div>
+                    <div class="invalid-feedback">Enter valid contact number.</div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -42,9 +47,8 @@
     var CrudUrls = {
 
         EmployeeAdd: '@Url.Action("PostEmployee","Employees")',
-        GetEmployeeList: '@Url.Action("GetEmployee","Employees")'
     }
     var x = new crudOperation();
     x.init();
-    
+
 </script>
