@@ -1,6 +1,16 @@
 ﻿@{
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+@* Show Notification *@
+<div class="toast">
+    <div class="toast-header">
+        <strong class="me-auto">Toast Header</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+        <p id="notification_msg"></p>
+    </div>
+</div>
 
 <div class="card">
     <div class="card-header">
@@ -8,7 +18,7 @@
     </div>
     <div class="card-body">
         <form method="post" class="row g-3 needs-validation" novalidate">
-            <div class="modal-body"> 
+            <div class="modal-body">
                 <input type="text" hidden class="form-control" id="emp_id">
 
                 <div class="mb-3">
@@ -27,9 +37,9 @@
 
                 <div class="mb-3">
                     <label class="form-label">Contact</label>
-                    <input type="tel" class="form-control" id="phone" required pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                    <input type="tel" class="form-control" id="phone" pattern="[789][0-9]{9}" min="10" max="10" required>
                     <div class="valid-feedback"> Looks good! </div>
-                    <div class="invalid-feedback">Enter valid contact number.</div>
+                    <div class="invalid-feedback">Please enter valid contact number of 10 digits.</div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -38,6 +48,8 @@
         </form>
     </div>
 </div>
+
+
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
