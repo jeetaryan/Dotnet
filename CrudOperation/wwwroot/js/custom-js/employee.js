@@ -14,6 +14,11 @@ var crudOperation = function () {
         $(document).on("click", "#btnDelete", DeleteEmployee);
     }
 
+    //notification using toast
+    function toast(msg) {
+        $(".toast-body").text(msg);
+        $('.toast').toast('show');
+    }
 
     // All user defined function will be implemented here
 
@@ -45,23 +50,20 @@ var crudOperation = function () {
                             contentType: 'application/x-www-form-urlencoded;charset=utf-8',
                             data: objValue,
                             success: function (result) {
-                                console.log(result);
-                                $("#notification_msg").innerHTML = result;
-                                document.getElementsByClassName(".toast").show();
-                                //window.location.href = "/Employees/Index";
+                                toast(result);
+                                window.location.href = "/Employees/Index";
                             },
-                            error: function () {
-                                alert("Could not created new record.");
+                            error: function (err) {
+                                toast(err.text);
                             }
                         });
                     }
                 });
         }
         catch (err) {
-            console.log("Error: ",err);
+            toast(err.text);
         }
     }
-
 
     //creating get employee function
     var GetEmployee = function () {
@@ -123,13 +125,13 @@ var crudOperation = function () {
                     $("#email").val(result.email);
                     $("#phone").val(result.phone);
                 },
-                error: function (e) {
-                    console.log(e);
+                error: function (err) {
+                    toast(err.text);
                 }
             });
         }
         catch (err) {
-            console.log("Error: ", err);
+            toast(err.text);
         }
     }
 
@@ -160,18 +162,18 @@ var crudOperation = function () {
                             contentType: 'application/x-www-form-urlencoded;charset=utf-8',
                             data: objValue,
                             success: function (result) {
-                                console.log(result);
+                                toast(result);
                                 window.location.href = "/Employees/Index";
                             },
-                            error: function () {
-                                alert("Could not updated record.");
+                            error: function (err) {
+                                toast(err.text);
                             }
                         });
                     }
                 })
         }
         catch (err) {
-            console.log("Error:", err);
+            toast(err.text);
         }
     }
     //creating delete employee function
@@ -186,17 +188,17 @@ var crudOperation = function () {
                 dataType: 'Json',
                 contentType: 'application/json;charset=utf-8',
                 success: function (result) {
-                    console.log(result);
+                    toast(result);
                     window.location.href = "/Employees/Index";
 
                 },
-                error: function (e) {
-                    console.log(e);
+                error: function (err) {
+                    toast(err.text);
                 }
             });
         }
         catch (err) {
-            console.log("Error:", err);
+            toast(err.text);
         }
     }
 

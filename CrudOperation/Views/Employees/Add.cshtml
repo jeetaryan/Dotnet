@@ -1,14 +1,16 @@
 ﻿@{
 }
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="~/css/custom-css/custom.css" rel="stylesheet" />
 @* Show Notification *@
-<div class="toast">
-    <div class="toast-header">
-        <strong class="me-auto">Toast Header</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-    </div>
-    <div class="toast-body">
-        <p id="notification_msg"></p>
+<div class="toast-container position-absolute top-0 end-0 p-3">
+    <div class="toast">
+        <div class="toast-header">
+            <strong class="me-auto">Notification:</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+        </div>
     </div>
 </div>
 
@@ -54,6 +56,7 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 <script src="~/js/custom-js/employee.js"></script>
+
 <script>
 
     var CrudUrls = {
